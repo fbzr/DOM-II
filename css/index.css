@@ -180,6 +180,19 @@ img {
   background: #FFFFFF;
   border-bottom: 2px dashed #C0C0C0;
   position: fixed;
+  z-index: 10;
+  transition: all 500ms;
+}
+.main-navigation.scrolled {
+  background: #17A2B8;
+  opacity: 0.9;
+  color: #FFFFFF;
+  height: 70px;
+  border: none;
+}
+.main-navigation.scrolled .container .nav .nav-link {
+  color: #FFFFFF;
+  font-size: 1.8rem;
 }
 .main-navigation .nav-container {
   height: 100%;
