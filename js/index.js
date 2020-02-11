@@ -19,6 +19,19 @@ const changeNavColor = e => {
 
 window.addEventListener('scroll', changeNavColor);
 
+// Animate nav-links on double click
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('dblclick', () => {
+        link.animate([
+            { transform: 'scale(0)' }, 
+            { transform: 'scale(1.1)' }
+          ], { 
+            duration: 500,
+            iterations: 1
+          });
+    });    
+});
+
 // Disable right click
 document.body.addEventListener('contextmenu', e => {
     e.preventDefault();   
