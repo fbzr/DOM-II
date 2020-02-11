@@ -3,6 +3,11 @@
 // Add popup when page loads
 window.addEventListener('load', () => {
     alert('Welcome to Fun Bus!!');
+
+    gsap.from('header img', {
+        scale: 0.1,
+        duration: 3
+    });
 });
 
 // Add event listner to change nav background color when scroll
@@ -45,6 +50,13 @@ const changeColorOnMouseMove = (e) => {
 // Start crazy colors on background when auxclick on logo
 document.querySelector('.logo-heading').addEventListener('auxclick', () => {
     document.body.addEventListener('mousemove', changeColorOnMouseMove);
+
+    // Green sock Draggable to imgs
+    Draggable.create(".img-content", {
+        type:"x,y",
+        bounds: document.querySelector("body"),
+        inertia: true,
+    });
 });
 
 // Stop the nav items from refreshing the page
@@ -96,9 +108,3 @@ document.querySelectorAll('*').forEach(element => {
     });
 })
 
-// Green sock Draggable to imgs
-Draggable.create(".img-content", {
-    type:"x,y",
-    bounds: document.querySelector("body"),
-    inertia: true,
-});
