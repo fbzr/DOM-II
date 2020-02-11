@@ -20,7 +20,17 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-   
+    &.mouseOver {
+      .img-content {
+        &:before {
+          background-color: transparent;
+        }
+
+        img {
+          transform: rotate(3deg) scale(1.1);
+        }
+      }
+    }
     
     .text-content {
       width: 48%;
@@ -33,17 +43,33 @@
     }
 
     .img-content {
+      position: relative;
       width: 48%;
-      padding-left: 1%;
+      margin-left: 1%;
+      overflow: hidden;
+      border-radius: 10px;
 
       @media @mobile {
         width: 100%;
         padding: 0;
       }
 
-      img {
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        content: '';
+        width: 100%;
+        height: 100%;
+        background-color: fadeout(black, 70%);
         border-radius: 10px;
 
+        transition: all 200ms ease;
+      }
+
+      img {
+        border-radius: 10px;
+        transition: all 200ms;
         @media @mobile {
           width: 100%;
         }
