@@ -18,3 +18,9 @@ const changeNavColor = e => {
 }
 
 window.addEventListener('scroll', changeNavColor);
+
+// Disable right click
+document.body.addEventListener('contextmenu', e => {
+    e.preventDefault();   
+});
+
