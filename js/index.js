@@ -95,3 +95,10 @@ document.querySelectorAll('*').forEach(element => {
         e.stopPropagation();
     });
 })
+
+// Green sock Draggable to imgs
+Draggable.create(".img-content", {
+    type:"x,y",
+    bounds: document.querySelector("body"),
+    inertia: true,
+});
