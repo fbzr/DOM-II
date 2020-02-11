@@ -59,7 +59,7 @@ document.querySelectorAll('section.content-section').forEach(section => {
     section.addEventListener('mouseleave', e => section.classList.remove('mouseOver'));
 });
 
-const flipAnimation = (e) => {
+const flipAnimation = e => {
     e.preventDefault();
     e.target.animate(
         [
@@ -76,3 +76,22 @@ const flipAnimation = (e) => {
 // Add animation on Content destination img when use wheel
 document.querySelector('.content-destination img').addEventListener('wheel', flipAnimation);
 document.querySelector('header img').addEventListener('wheel', flipAnimation);
+
+// Change background color when click on body
+document.body.addEventListener('click', e => {
+    const body = e.target;
+    console.log(body.style.backgroundColor);
+    if(body.style.backgroundColor === 'rgb(238, 238, 238)') {
+        body.style.backgroundColor = '#fff';
+    } else 
+    {
+        body.style.backgroundColor = 'rgb(238,238,238)';
+    }
+});
+
+// Use stopPropagation to avoid change bg color when click in a different element
+document.querySelectorAll('*').forEach(element => {
+    element.addEventListener('click', e => {
+        e.stopPropagation();
+    });
+})
