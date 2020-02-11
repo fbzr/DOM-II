@@ -59,16 +59,20 @@ document.querySelectorAll('section.content-section').forEach(section => {
     section.addEventListener('mouseleave', e => section.classList.remove('mouseOver'));
 });
 
-// Add animation on Content destination img when use wheel
-document.querySelector('.content-destination img').addEventListener('wheel', e => {
+const flipAnimation = (e) => {
     e.preventDefault();
-    
-    e.target.animate([
+    e.target.animate(
+        [
             { transform: 'rotateX(0)' }, 
             { transform: 'rotateX(360deg)' }
-          ], { 
+        ], 
+        { 
             duration: 500,
             iterations: 1
-          });
-    console.log(e.target);
-});
+        }
+    );
+}
+
+// Add animation on Content destination img when use wheel
+document.querySelector('.content-destination img').addEventListener('wheel', flipAnimation);
+document.querySelector('header img').addEventListener('wheel', flipAnimation);
