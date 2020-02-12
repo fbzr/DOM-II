@@ -22,16 +22,32 @@
 //     inertia: true,
 // });
 
+let left = 0;
+let interval;
+
 const moveBlockToTheTop = e => {
     document.querySelector('.blocks').prepend(e.target);
 }
 
-document.querySelectorAll('.block').forEach(block => {
-    block.addEventListener('click', moveBlockToTheTop);
-});
 
 const moveBoxToTheRight = e => {
+    interval = setInterval(() => {
+        e.target.style.transform = `translateX(${left}px)`;
+        left += 1;
+    }, 10);
+    
     console.log(e.target);
 }
 
-document.querySelector('.block').addEventListener('mousedown', moveBoxToTheRight);
+const stopBox = e => {
+    clearInterval(interval);
+    left = 0;
+}
+
+
+document.querySelectorAll('.block').forEach(block => {
+    block.addEventListener('click', moveBlockToTheTop);
+    block.addEventListener('mousedown', moveBoxToTheRight);
+    document.body.addEventListener('mouseup', stopBox);
+});
+
